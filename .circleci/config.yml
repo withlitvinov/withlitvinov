@@ -32,7 +32,7 @@ jobs:
       - pnpm-install
       - run:
           name: Eslint
-          command: eslint .
+          command: pnpm exec eslint .
   build:
     executor: node/default
     steps:
