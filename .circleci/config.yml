@@ -11,9 +11,9 @@ commands:
       - run:
           name: Install pnpm package manager
           command: |
-            corepack enable
+            corepack enable --install-directory ~/bin
             corepack prepare pnpm@latest-9 --activate
-            pnpm config set store-dir .pnpm-store
+            pnpm config set store-dir ~/.pnpm-store
       - run:
           name: Install Dependencies
           command: |
@@ -22,7 +22,7 @@ commands:
           name: Save pnpm Package Cache
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
-            - .pnpm-store
+            - ~/.pnpm-store
 
 jobs:
   lint:
