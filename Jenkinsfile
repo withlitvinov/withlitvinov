@@ -13,5 +13,16 @@ pipeline {
                 sh 'pnpm exec eslint .'
             }
         }
+        stage('Build') {
+            steps {
+                sh 'corepack enable'
+                sh 'corepack prepare pnpm@latest-9 --activate'
+                sh 'pnpm install'
+                sh 'pnpm build'
+            }
+            post {
+                archiveArtifacts artifacts: 'build dist public .output .next .docusaurus', fingerprint: true, onlyIfSuccessful: true
+            }
+        }
     }
 }
