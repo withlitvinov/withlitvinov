@@ -20,9 +20,9 @@ pipeline {
                 sh 'pnpm install'
                 sh 'pnpm build'
             }
-            post {
-                archiveArtifacts artifacts: 'build dist public .output .next .docusaurus', fingerprint: true, onlyIfSuccessful: true
-            }
         }
+    }
+    post {
+        archiveArtifacts artifacts: 'build dist public .output .next .docusaurus', fingerprint: true, onlyIfSuccessful: true
     }
 }
