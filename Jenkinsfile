@@ -24,7 +24,7 @@ pipeline {
     }
     post {
         success {
-            archiveArtifacts artifacts: 'build dist public .output .next .docusaurus', fingerprint: true, onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'build, dist, public, .output, .next, .docusaurus', fingerprint: true, onlyIfSuccessful: true
         }
     }
 }
