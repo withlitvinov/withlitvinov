@@ -8,8 +8,7 @@ pipeline {
     stages {
         stage('Lint') {
             steps {
-		sh 'echo $HOME'
-                sh 'sudo corepack enable'
+                sh 'corepack enable'
                 sh 'corepack prepare pnpm@latest-9 --activate'
                 sh 'pnpm install'
                 sh 'pnpm exec eslint .'
