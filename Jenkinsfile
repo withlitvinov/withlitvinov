@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Lint') {
             steps {
-		sh 'ls -a'
+		sh 'ls -a $HOME'
                 sh 'sudo corepack enable'
                 sh 'corepack prepare pnpm@latest-9 --activate'
                 sh 'pnpm install'
